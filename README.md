@@ -2,7 +2,7 @@
 
 The website for [Encyclopedia 2000](https://github.com/sburton0/encyclopedia-2000), a free desktop encyclopedia for Windows.
 
-Plain HTML and CSS, served by GitHub Pages at https://encyclopedia2000.com. No build step, no tracking, and no third-party requests (fonts are self-hosted in `fonts/`).
+Plain HTML and CSS, served by GitHub Pages at https://encyclopedia2000.com. No build step and no cookies. Fonts are self-hosted in `fonts/`. Visits are counted with Cloudflare Web Analytics (cookie-free), turned on in the Cloudflare dashboard.
 
 | Path | Page |
 | --- | --- |

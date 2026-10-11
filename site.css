@@ -2,7 +2,7 @@
 /* encyclopedia2000.com: the app's own night-blue world, deliberately dark-only.
    Home page: a centered hero with the real Home screen, alternating feature rows, an activities grid,
    a Wikipedia credit, a "software box" download panel, and an FAQ. Privacy and Press pages share the header and footer. */
-@import url('/fonts/fonts.css');
+@import url('fonts/fonts.css');
 :root {
   --ink-0: #071330;      /* deepest background */
   --ink-1: #0f2250;      /* page background */
@@ -15,12 +15,14 @@
   --edge: rgba(160, 190, 255, .28);
   --display: "Sora", "Segoe UI", system-ui, sans-serif;
   --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --wordmark: "Segoe UI", "Selawik", system-ui, sans-serif; /* the app's own wordmark font */
   --wrap: 1120px;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+html, body { margin: 0; }
 body { background: var(--ink-1); color: var(--paper); font: 400 1.0625rem/1.6 var(--body); }
 a { color: var(--gold); }
 a:hover { color: #fff; }
@@ -33,7 +35,7 @@ p { margin: 0; }
 /* ---------- header ---------- */
 header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(5, 10, 24, .86); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 255, 255, .08); }
 header .wrap { display: flex; align-items: center; gap: 24px; height: 58px; }
-.brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font: 300 1.05rem var(--display); white-space: nowrap; }
+.brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font: 300 1.1rem var(--wordmark); white-space: nowrap; }
 .brand img { width: 30px; height: 30px; }
 .brand b { font-weight: 600; }
 nav { display: flex; gap: 22px; margin-left: auto; }
@@ -45,6 +47,9 @@ nav a:hover { color: #fff; }
 .btn.primary { background: linear-gradient(#ffc14d, #f5a623 55%, #d4860f); color: #1a1406; border-color: #b8740b; }
 .btn.primary:hover { background: linear-gradient(#ffd27a, #ffb52e 55%, #e0920f); color: #1a1406; }
 .btn small { font-weight: 400; opacity: .75; }
+.btn .gh, .ghlink .gh { width: 18px; height: 18px; fill: currentColor; flex: none; }
+.ghlink { display: inline-flex; align-items: center; gap: 6px; }
+.hero .lede { font-size: clamp(1.25rem, 3vw, 1.5rem); color: #eef3fc; }
 header .btn { padding: 7px 14px; }
 @media (max-width: 760px) { nav { display: none; } header .btn { margin-left: auto; } }
 
@@ -59,10 +64,10 @@ header .btn { padding: 7px 14px; }
 @keyframes turn { to { rotate: 360deg; } }
 .hero .wrap { position: relative; }
 .mark { width: 84px; height: 84px; margin: 0 auto 18px; filter: drop-shadow(0 0 18px rgba(190, 215, 255, .8)); }
-.hero h1 { line-height: 1; }
-.hero h1 .e { display: block; font-weight: 300; font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: .02em; }
-.hero h1 .y { display: block; font-weight: 600; font-size: clamp(4.2rem, 13vw, 8.5rem); letter-spacing: .04em; text-shadow: 0 4px 30px rgba(5, 15, 45, .7); }
-.tag { margin-top: 10px; font: 600 .78rem var(--display); letter-spacing: .5em; color: var(--sky); text-transform: uppercase; }
+.hero h1 { line-height: 1; font-family: var(--wordmark); }
+.hero h1 .e { display: block; font-weight: 300; font-size: clamp(1.7rem, 4vw, 2.5rem); letter-spacing: .03em; }
+.hero h1 .y { display: block; font-weight: 600; font-size: clamp(4.2rem, 13vw, 8.5rem); letter-spacing: .06em; text-shadow: 0 4px 30px rgba(5, 15, 45, .7); }
+.tag { margin-top: 10px; font: 600 .78rem var(--wordmark); letter-spacing: .5em; color: var(--sky); text-transform: uppercase; }
 .lede { max-width: 38em; margin: 26px auto 0; font-size: 1.2rem; color: #dbe5f7; }
 .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
 .meta { margin-top: 14px; font-size: .9rem; color: var(--sky); }
@@ -150,6 +155,14 @@ dialog p { padding: 10px 14px; background: #0b0d12; color: var(--sky); font-size
 dialog button { position: absolute; top: 8px; right: 8px; width: 34px; height: 34px; border: 1px solid #4a5262; background: rgba(11, 13, 18, .85); color: #fff; font: 1.2rem/1 var(--body); cursor: pointer; }
 
 /* Download choices */
+.box h2.big { font-weight: 600; font-size: clamp(2.2rem, 5vw, 3rem); margin-top: 0; }
+.box .sub { margin-top: 6px; color: var(--sky); }
+.dl { display: grid; gap: 12px; margin-top: 26px; }
+.dl a { display: flex; align-items: center; gap: 14px; padding: 14px 18px; text-decoration: none; }
+.dl a svg { flex: none; width: 22px; height: 22px; fill: currentColor; }
+.dl a b { display: block; font-size: 1.1rem; }
+.dl a span { display: block; font-size: .9rem; opacity: .8; }
+.dl .btn { white-space: normal; }
 .choices { display: grid; gap: 10px; margin-top: 22px; }
 .choice { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid var(--edge); background: rgba(5, 12, 30, .35); color: var(--paper); text-decoration: none; }
 .choice:hover { border-color: var(--orange); background: rgba(245, 166, 35, .1); color: var(--paper); }
