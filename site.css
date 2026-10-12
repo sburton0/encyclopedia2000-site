@@ -39,6 +39,7 @@ header .wrap { display: flex; align-items: center; gap: 24px; height: 58px; }
 .brand img { width: 30px; height: 30px; }
 .brand b { font-weight: 600; }
 nav { display: flex; gap: 22px; margin-left: auto; }
+@media (max-width: 1060px) { header nav { gap: 16px; } }
 nav a { color: var(--sky); text-decoration: none; font-weight: 600; font-size: .95rem; }
 nav a:hover { color: #fff; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid #4a5262; background: linear-gradient(#2b303a, #1b1e25);
@@ -51,7 +52,7 @@ nav a:hover { color: #fff; }
 .ghlink { display: inline-flex; align-items: center; gap: 6px; }
 .hero .lede { font-size: clamp(1.25rem, 3vw, 1.5rem); color: #eef3fc; }
 header .btn { padding: 7px 14px; }
-@media (max-width: 760px) { nav { display: none; } header .btn { margin-left: auto; } }
+@media (max-width: 900px) { header nav { display: none; } header .btn { margin-left: auto; } }
 
 /* ---------- hero ---------- */
 .hero { position: relative; overflow: hidden; padding-block: 72px 0; text-align: center;
@@ -158,11 +159,18 @@ dialog button { position: absolute; top: 8px; right: 8px; width: 34px; height: 3
 .box h2.big { font-weight: 600; font-size: clamp(2.2rem, 5vw, 3rem); margin-top: 0; }
 .box .sub { margin-top: 6px; color: var(--sky); }
 .dl { display: grid; gap: 12px; margin-top: 26px; }
-.dl a { display: flex; align-items: center; gap: 14px; padding: 14px 18px; text-decoration: none; }
-.dl a svg { flex: none; width: 22px; height: 22px; fill: currentColor; }
-.dl a b { display: block; font-size: 1.1rem; }
-.dl a span { display: block; font-size: .9rem; opacity: .8; }
-.dl .btn { white-space: normal; }
+.dl a, .dl button { display: flex; align-items: center; gap: 14px; padding: 14px 18px; text-decoration: none; }
+.dl a svg, .dl button svg { flex: none; width: 22px; height: 22px; fill: currentColor; }
+.dl a b, .dl button b { display: block; font-size: 1.1rem; }
+.dl a span, .dl button span { display: block; font-size: .9rem; opacity: .8; }
+.dl .btn { white-space: normal; text-align: left; font: 600 .95rem var(--body); width: 100%; }
+/* Phones and tablets see the "send to yourself" panel; PCs see the download buttons. */
+.on-phone { display: none; }
+.phone .on-phone { display: block; }
+.phone span.on-phone { display: inline; }
+.phone .on-pc { display: none; }
+.topc > p:first-child { margin-top: 22px; color: #eef3fc; }
+.topc .dl { margin-top: 16px; }
 .choices { display: grid; gap: 10px; margin-top: 22px; }
 .choice { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border: 1px solid var(--edge); background: rgba(5, 12, 30, .35); color: var(--paper); text-decoration: none; }
 .choice:hover { border-color: var(--orange); background: rgba(245, 166, 35, .1); color: var(--paper); }
