@@ -108,7 +108,9 @@ section { padding-block: 88px; }
 @media (max-width: 820px) { .row, .row.flip { grid-template-columns: 1fr; gap: 22px; } .row.flip .shot { order: 0; } }
 
 /* Activities grid */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
 .card { display: flex; flex-direction: column; border: 1px solid var(--edge); background: linear-gradient(rgba(37, 69, 138, .45), rgba(15, 34, 80, .6)); }
 .card .shot { border: 0; border-bottom: 1px solid var(--edge); box-shadow: none; }
 .card div { padding: 16px 18px 20px; }
