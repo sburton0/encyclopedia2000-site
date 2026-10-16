@@ -84,6 +84,16 @@ section { padding-block: 88px; }
 
 /* Feature rows: picture and words side by side, alternating */
 .features { background: linear-gradient(var(--ink-0), var(--ink-1) 30%); }
+.themes { background: var(--ink-1); }
+.themes .shot { max-width: 980px; margin-inline: auto; }
+.theme-picks { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; max-width: 980px; margin: 22px auto 0; }
+.theme-picks button { padding: 0 0 8px; border: 1px solid var(--edge); background: rgba(5, 12, 30, .55); color: var(--sky); font: 600 .9rem var(--body); cursor: pointer; }
+.theme-picks button img { display: block; width: 100%; height: auto; margin-bottom: 7px; }
+.theme-picks button:hover { color: #fff; border-color: rgba(245, 166, 35, .6); }
+.theme-picks button[aria-selected="true"] { color: #fff; border-color: var(--orange); box-shadow: 0 0 0 1px var(--orange); }
+.theme-blurb { max-width: 980px; margin: 18px auto 0; text-align: center; color: var(--sky); }
+.theme-blurb b { color: #fff; }
+@media (max-width: 760px) { .theme-picks { grid-template-columns: repeat(4, 1fr); gap: 8px; } .theme-picks button { font-size: .8rem; } }
 .row { display: grid; grid-template-columns: 1.35fr 1fr; gap: 48px; align-items: center; }
 .row + .row { margin-top: 80px; }
 .row.flip { grid-template-columns: 1fr 1.35fr; }
