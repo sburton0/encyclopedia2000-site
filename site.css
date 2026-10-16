@@ -30,7 +30,6 @@ a:hover { color: #fff; }
 h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
 p { margin: 0; }
 .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: 20px; }
-.eyebrow { font: 600 .72rem var(--display); letter-spacing: .28em; text-transform: uppercase; color: var(--orange); }
 
 /* ---------- header ---------- */
 header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(5, 10, 24, .86); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 255, 255, .08); }
@@ -228,3 +227,11 @@ footer nav a { font-weight: 400; }
 .assets .logo img { aspect-ratio: 1; object-fit: contain; padding: 22px; background: radial-gradient(circle, #25458a, #0f2250 70%); }
 .assets span { display: block; padding: 8px 10px; }
 .copybox { margin-top: 12px; padding: 14px 16px; border: 1px solid var(--edge); background: rgba(5, 12, 30, .35); color: #d6e1f5; }
+
+/* Streamlined layout (2026-10): single-column Wikipedia and Download sections, and a one-line "coming next". */
+.wiki.single .wrap { display: block; max-width: 760px; text-align: center; }
+.wiki.single .copy .btn { margin-top: 22px; }
+.box.single { grid-template-columns: 1fr; max-width: 760px; margin-inline: auto; }
+#next { padding-block: 40px; }
+.next-line { text-align: center; color: var(--sky); font-size: 1.05rem; }
+.next-line a { color: #fff; }
