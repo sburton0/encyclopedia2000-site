@@ -237,4 +237,4 @@ footer nav a { font-weight: 400; }
 #next { padding-block: 40px; }
 .next-line { text-align: center; color: var(--sky); font-size: 1.05rem; }
 .next-line a { color: #fff; }
-.more-acts { margin-top: 22px; text-align: center; color: var(--sky); }
+.more-acts { margin-top: 28px; text-align: center; font: 300 clamp(1.5rem, 3vw, 2rem)/1.2 var(--display); color: #fff; }
