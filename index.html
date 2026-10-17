@@ -225,6 +225,8 @@
   document.querySelectorAll('.os-tabs button').forEach((b) => b.addEventListener('click', () => showOS(b.dataset.os)));
   showOS(guess);
   document.getElementById('hero-os').textContent = 'for ' + OS_NAMES[guess];
+  // Phones can't run the app, so the top button leads to the "send the link to your computer" panel instead.
+  if (isPhone) document.querySelector('#hero-dl > span').textContent = 'Get it for your computer';
 
   // Click any screenshot to see it full size.
   const lb = document.getElementById('lb');
