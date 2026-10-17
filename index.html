@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="images/icon-small.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico">
-<link rel="stylesheet" href="site.css?v=9">
+<link rel="stylesheet" href="site.css?v=10">
 </head>
 <body>
 
@@ -83,49 +83,22 @@
           <p>Save articles and find them again from any screen.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="themes" id="themes">
-    <div class="wrap">
-      <div class="head">
-        <h2>Themes</h2>
-        <p>Seven looks, from northern lights to a ’90s desktop. Switch any time in <b>Tools → Themes</b>.</p>
+      <div class="row">
+        <button class="shot" data-cap="Four of the seven themes: Aurora, Sunset, Library, and Classic Gray."><img src="images/themes-grid.jpg" alt="The Home screen in four themes: Aurora, Sunset, Library, and Classic Gray" loading="lazy" width="1600" height="1164"></button>
+        <div>
+          <h3>Themes</h3>
+          <p>Seven looks, from northern lights to a ’90s desktop. Switch any time in <b>Tools → Themes</b>.</p>
+        </div>
       </div>
-      <button class="shot" id="theme-shot" data-cap="The Bloom theme: the original glowing bloom on night blue."><img id="theme-img" src="images/themes/bloom.jpg" alt="The Encyclopedia 2000 Home screen in the Bloom theme" loading="lazy" width="1283" height="930"></button>
-      <div class="theme-picks" role="tablist" aria-label="Choose a theme">
-        <button type="button" role="tab" data-theme="bloom" data-name="Bloom" data-blurb="The original: a glowing bloom on night blue." aria-selected="true"><img src="images/themes/thumb-bloom.jpg" alt="" width="320" height="200" loading="lazy"><span>Bloom</span></button>
-        <button type="button" role="tab" data-theme="aurora" data-name="Aurora" data-blurb="Northern lights, stars, and planets." aria-selected="false"><img src="images/themes/thumb-aurora.jpg" alt="" width="320" height="200" loading="lazy"><span>Aurora</span></button>
-        <button type="button" role="tab" data-theme="sunset" data-name="Sunset" data-blurb="A warm evening sky over desert dunes." aria-selected="false"><img src="images/themes/thumb-sunset.jpg" alt="" width="320" height="200" loading="lazy"><span>Sunset</span></button>
-        <button type="button" role="tab" data-theme="disc" data-name="CD-ROM" data-blurb="Silver chrome and a rainbow disc." aria-selected="false"><img src="images/themes/thumb-disc.jpg" alt="" width="320" height="200" loading="lazy"><span>CD-ROM</span></button>
-        <button type="button" role="tab" data-theme="ocean" data-name="Ocean" data-blurb="Light rays and bubbles under the sea." aria-selected="false"><img src="images/themes/thumb-ocean.jpg" alt="" width="320" height="200" loading="lazy"><span>Ocean</span></button>
-        <button type="button" role="tab" data-theme="library" data-name="Library" data-blurb="Wood, parchment, and shelves of books." aria-selected="false"><img src="images/themes/thumb-library.jpg" alt="" width="320" height="200" loading="lazy"><span>Library</span></button>
-        <button type="button" role="tab" data-theme="classic" data-name="Classic Gray" data-blurb="The plain gray look of late-’90s desktops." aria-selected="false"><img src="images/themes/thumb-classic.jpg" alt="" width="320" height="200" loading="lazy"><span>Classic Gray</span></button>
-      </div>
-      <p class="theme-blurb" id="theme-blurb"><b>Bloom</b> · The original: a glowing bloom on night blue.</p>
-    </div>
-  </section>
 
-  <section id="activities">
-    <div class="wrap">
-      <div class="head">
-        <h2>Activities</h2>
+      <div class="row flip">
+        <button class="shot" data-cap="Activities: the Periodic Table, the Solar System, The Day You Were Born, and the World Clock."><img src="images/activities-grid.jpg" alt="Four activities: the Periodic Table, the Solar System, The Day You Were Born, and the World Clock" loading="lazy" width="1600" height="1164"></button>
+        <div>
+          <h3>Activities</h3>
+          <p>Interactive ways to explore, from the elements and the planets to the day you were born. New ones arrive with each version.</p>
+        </div>
       </div>
-      <div class="grid">
-        <article class="card">
-          <button class="shot" data-cap="The Periodic Table, with Gold selected."><img src="images/periodic-table.jpg" alt="The Periodic Table activity" loading="lazy" width="1283" height="930"></button>
-          <div><h3>Periodic Table</h3><p>All 118 elements, colored by family, each with its own details card.</p></div>
-        </article>
-        <article class="card">
-          <button class="shot" data-cap="The Solar System, with the planets where they are today."><img src="images/solar-system.jpg" alt="The Solar System activity with Saturn selected" loading="lazy" width="1283" height="930"></button>
-          <div><h3>The Solar System</h3><p>The planets in motion, placed where they really are today.</p></div>
-        </article>
-        <article class="card">
-          <button class="shot" data-cap="The Day You Were Born, for July 20, 1969."><img src="images/day-you-were-born.jpg" alt="The Day You Were Born for July 20, 1969" loading="lazy" width="1283" height="930"></button>
-          <div><h3>The Day You Were Born</h3><p>The news on your birthday, and the famous people who share it.</p></div>
-        </article>
-      </div>
-      <p class="more-acts">…and many more!</p>
     </div>
   </section>
 
@@ -252,21 +225,6 @@
   document.querySelectorAll('.os-tabs button').forEach((b) => b.addEventListener('click', () => showOS(b.dataset.os)));
   showOS(guess);
   document.getElementById('hero-os').textContent = 'for ' + OS_NAMES[guess];
-
-  // Themes: the buttons swap the big screenshot. Everything happens on the visitor's device.
-  const themeImg = document.getElementById('theme-img');
-  document.querySelectorAll('.theme-picks button').forEach((b) => {
-    const show = () => {
-      document.querySelectorAll('.theme-picks button').forEach((x) => x.setAttribute('aria-selected', x === b));
-      themeImg.src = 'images/themes/' + b.dataset.theme + '.jpg';
-      themeImg.alt = 'The Encyclopedia 2000 Home screen in the ' + b.dataset.name + ' theme';
-      document.getElementById('theme-shot').dataset.cap = 'The ' + b.dataset.name + ' theme: ' + b.dataset.blurb.charAt(0).toLowerCase() + b.dataset.blurb.slice(1);
-      document.getElementById('theme-blurb').innerHTML = '<b>' + b.dataset.name + '</b> · ' + b.dataset.blurb;
-    };
-    b.addEventListener('click', show);
-    // Start loading a theme's screenshot as soon as the pointer is over its button, so the switch feels instant.
-    b.addEventListener('pointerenter', () => { new Image().src = 'images/themes/' + b.dataset.theme + '.jpg'; }, { once: true });
-  });
 
   // Click any screenshot to see it full size.
   const lb = document.getElementById('lb');
