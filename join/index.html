@@ -49,6 +49,8 @@
   .card input[type=email] { width: 100%; padding: 12px 14px; border: 1px solid #4a5262; border-radius: 4px; background: #0b0d12; color: #fff; font: inherit; }
   .card input[type=email]:focus { outline: 2px solid var(--orange); outline-offset: 1px; }
   .card .btn { justify-content: center; }
+  .card p.os { margin-top: 6px; font: 600 .95rem/1 var(--body); letter-spacing: .02em; color: var(--sky); white-space: nowrap; }
+  .card p.os span { margin-inline: 6px; color: #5d6d94; }
   .card label.opt { display: flex; gap: 8px; align-items: flex-start; font-size: .85rem; color: var(--sky); }
   .card label.opt input { margin-top: 3px; accent-color: var(--orange); }
   .card .fine { font-size: .76rem; color: #93a3c4; }
@@ -66,7 +68,7 @@
   <a class="site" href="../index.html">Visit the website ›</a>
 </div>
 <main class="join">
-  <p class="kicker">You're invited</p>
+  <p class="kicker">Free and open to everyone</p>
   <h1>Join the <b>Encyclopedia 2000</b> beta</h1>
   <p class="sub">The CD-ROM encyclopedia, reborn with today's Wikipedia. Free, no ads, no account.</p>
   <div class="carousel" aria-label="Screenshots">
@@ -83,7 +85,7 @@
   <div class="phone">
     <div class="card">
       <h2>Email me the download link</h2>
-      <p>It's a desktop app for Windows, Mac, and Linux. We'll send the link so it's waiting at your computer.</p>
+      <p class="os">Windows <span>·</span> Mac <span>·</span> Linux</p>
       <form onsubmit="return false">
         <input type="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
         <button class="btn primary" type="submit">Send me the link</button>
