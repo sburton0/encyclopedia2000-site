@@ -59,6 +59,8 @@
   /* On a computer, offer the download right away instead of the email form. */
   .desk { display: none; }
   @media (min-width: 900px) and (pointer: fine) { .desk { display: block; } .phone { display: none; } }
+  /* For testing: /join/?phone shows the phone version on a computer. */
+  .force-phone .desk { display: none !important; } .force-phone .phone { display: block !important; }
 </style>
 </head>
 <body>
@@ -85,9 +87,9 @@
     <div class="card">
       <h2>Email me the download link</h2>
       <p class="os">Windows <span>·</span> Mac <span>·</span> Linux</p>
-      <!-- Sign-ups go to Kit (kit.com), which sends the download email. KIT_FORM_ID is the number from the form's
+      <!-- Sign-ups go to Kit (kit.com), which sends the download email. The number is the form ID from the form's
            HTML embed code in Kit. After a sign-up, Kit sends people to /join/thanks/ (set in the form's settings). -->
-      <form action="https://app.kit.com/forms/KIT_FORM_ID/subscriptions" method="post">
+      <form action="https://app.kit.com/forms/10064508/subscriptions" method="post">
         <input type="email" name="email_address" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
         <button class="btn primary" type="submit">Send me the link</button>
         <label class="opt"><input type="checkbox" name="fields[beta_news]" value="yes"> Also send me beta news</label>
@@ -115,6 +117,7 @@
   </section>
 </main>
 <script>
+  if (/[?&]phone/.test(location.search)) document.documentElement.classList.add('force-phone');
   // Dots under the screenshots: show which one is in view, and jump to one when tapped.
   const track = document.querySelector('.track'), dots = document.querySelector('.dots');
   const figs = [...track.children];
