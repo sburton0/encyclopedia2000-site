@@ -85,11 +85,13 @@
     <div class="card">
       <h2>Email me the download link</h2>
       <p class="os">Windows <span>·</span> Mac <span>·</span> Linux</p>
-      <form onsubmit="return false">
-        <input type="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+      <!-- Sign-ups go to Kit (kit.com), which sends the download email. KIT_FORM_ID is the number from the form's
+           HTML embed code in Kit. After a sign-up, Kit sends people to /join/thanks/ (set in the form's settings). -->
+      <form action="https://app.kit.com/forms/KIT_FORM_ID/subscriptions" method="post">
+        <input type="email" name="email_address" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
         <button class="btn primary" type="submit">Send me the link</button>
-        <label class="opt"><input type="checkbox"> Also send me beta news (a few emails a year)</label>
-        <p class="fine">We use your email only to send the link, plus beta news if you ask. Unsubscribe anytime. <a href="../privacy/index.html">Privacy policy</a></p>
+        <label class="opt"><input type="checkbox" name="fields[beta_news]" value="yes"> Also send me beta news (a few emails a year)</label>
+        <p class="fine">We use your email only to send the link, plus beta news if you ask. If you don't ask for news, we delete your address within 30 days. For ages 13 and up. <a href="../privacy/index.html#signup">Privacy policy</a></p>
       </form>
     </div>
     <p class="alt">Or visit <b>encyclopedia2000.com</b> on your computer</p>
