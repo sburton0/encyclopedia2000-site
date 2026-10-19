@@ -47,6 +47,8 @@
   .card form { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
   .card input[type=email] { width: 100%; padding: 12px 14px; border: 1px solid #4a5262; border-radius: 4px; background: #0b0d12; color: #fff; font: inherit; }
   .card input[type=email]:focus { outline: 2px solid var(--orange); outline-offset: 1px; }
+  .card input[aria-invalid=true] { border-color: #ff8a7a; }
+  .card .err { margin: -4px 0 0; font-size: .85rem; color: #ff9d8f; }
   .card .btn { justify-content: center; }
   .card p.os { margin-top: 6px; font: 600 .95rem/1 var(--body); letter-spacing: .02em; color: var(--sky); white-space: nowrap; }
   .card p.os span { margin-inline: 6px; color: #5d6d94; }
@@ -89,8 +91,9 @@
       <p class="os">Windows <span>·</span> Mac <span>·</span> Linux</p>
       <!-- Sign-ups go to Kit (kit.com), which sends the download email. The number is the form ID from the form's
            HTML embed code in Kit. After a sign-up, Kit sends people to /beta-signup/thanks/ (set in the form's settings). -->
-      <form action="https://app.kit.com/forms/10064508/subscriptions" method="post">
-        <input type="email" name="email_address" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+      <form action="https://app.kit.com/forms/10064508/subscriptions" method="post" novalidate>
+        <input type="email" name="email_address" required placeholder="you@example.com" aria-label="Email address" autocomplete="email" aria-describedby="email-err">
+        <p class="err" id="email-err" role="alert" hidden></p>
         <button class="btn primary" type="submit">Send me the link</button>
         <label class="opt"><input type="checkbox" name="fields[beta_news]" value="yes"> Send me beta news and sneak peeks</label>
         <p class="fine">We use your email only to send the link, plus beta news if you ask. If you don't ask for news, we delete your address within 90 days. For ages 13 and up. <a href="../privacy/index.html#signup">Privacy policy</a></p>
@@ -124,6 +127,17 @@
   figs.forEach((f, i) => { const b = document.createElement('button'); b.setAttribute('aria-label', 'Screenshot ' + (i + 1)); b.onclick = () => track.scrollTo({ left: f.offsetLeft - track.offsetLeft, behavior: 'smooth' }); dots.append(b); });
   const mark = () => { const i = Math.round(track.scrollLeft / (track.clientWidth + 12)); [...dots.children].forEach((d, j) => d.classList.toggle('on', i === j)); };
   track.addEventListener('scroll', mark, { passive: true }); mark();
+  // Check the address before sending it to Kit: something@, then a domain with a dot and an ending (gmail.com).
+  const form = document.querySelector('.card form'), email = form.elements.email_address, err = document.getElementById('email-err');
+  const showErr = (msg) => { err.textContent = msg; err.hidden = !msg; email.setAttribute('aria-invalid', msg ? 'true' : 'false'); };
+  form.addEventListener('submit', (e) => {
+    email.value = email.value.trim();
+    const msg = !email.value ? 'Please enter your email address.'
+      : /^[^\s@]+@([a-z0-9-]+\.)+[a-z]{2,}$/i.test(email.value) ? '' : 'Please enter a valid email address.';
+    showErr(msg);
+    if (msg) { e.preventDefault(); email.focus(); }
+  });
+  email.addEventListener('input', () => { if (!err.hidden) showErr(''); });
 </script>
 </body>
 </html>
