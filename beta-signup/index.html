@@ -58,11 +58,15 @@
   .card .fine a { color: inherit; }
   .alt { margin-top: 16px; font-size: .95rem; color: #dbe5f7; }
   /* Phone: no sign-up needed. Get the link to your computer first; email is an optional extra. */
-  .card .url { margin: 12px 0 4px; padding: 12px; text-align: center; font: 600 1.25rem/1.2 var(--body); color: var(--orange);
-    background: rgba(255, 255, 255, .05); border: 1px dashed #4a5880; border-radius: 4px; user-select: all; }
-  .card .row { display: flex; gap: 10px; margin-top: 12px; }
-  .card .row .btn { flex: 1; }
-  .card .done { margin-top: 8px; font-size: .85rem; color: #9fe0a8; min-height: 1.1em; }
+  .card .url { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 12px 0 4px; padding: 10px 12px;
+    font: 600 1.25rem/1.2 var(--body); color: var(--orange); background: rgba(255, 255, 255, .05); border: 1px dashed #4a5880; border-radius: 4px; }
+  .card .url span { user-select: all; }
+  .card .url button { flex: none; width: 36px; height: 36px; display: grid; place-items: center; padding: 0; cursor: pointer;
+    background: rgba(255, 255, 255, .06); border: 1px solid #4a5880; border-radius: 4px; color: #dbe5f7; }
+  .card .url button:hover { color: var(--orange); border-color: var(--orange); }
+  .card .url button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linejoin: round; }
+  .card .done { margin-top: 8px; font-size: .85rem; color: #9fe0a8; }
+  .card .done:empty { display: none; }
   .card.mail { margin-top: 14px; background: rgba(8, 14, 32, .35); }
   .card.mail h2 { font-size: 1rem; }
   .card.mail p.hint { font-size: .85rem; color: #b9c6e0; }
@@ -98,12 +102,7 @@
     <div class="card">
       <h2>Get it on your computer</h2>
       <p class="os">Windows <span>·</span> Mac <span>·</span> Linux</p>
-      <p>Encyclopedia 2000 is a computer app. Just visit this address on your computer and download it. No email needed.</p>
-      <div class="url">encyclopedia2000.com</div>
-      <div class="row">
-        <button class="btn primary" type="button" id="share" hidden>Send to my computer</button>
-        <button class="btn" type="button" id="copy">Copy link</button>
-      </div>
+      <div class="url"><span id="addr">encyclopedia2000.com</span><button type="button" id="copy" title="Copy the address" aria-label="Copy the address"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8.5" height="9.5" rx="1.5"/><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H10"/></svg></button></div>
       <p class="done" id="done" aria-live="polite"></p>
     </div>
     <div class="card mail">
@@ -157,15 +156,11 @@
     if (msg) { e.preventDefault(); email.focus(); }
   });
   email.addEventListener('input', () => { if (!err.hidden) showErr(''); });
-  // Getting the link to a computer without email: the phone's share sheet (Messages, AirDrop, Notes...) or copy.
-  const LINK = 'https://encyclopedia2000.com/', done = document.getElementById('done'), shareBtn = document.getElementById('share');
-  if (navigator.share) {
-    shareBtn.hidden = false;
-    shareBtn.onclick = () => navigator.share({ title: 'Encyclopedia 2000', text: 'Download Encyclopedia 2000 on my computer', url: LINK }).catch(() => {});
-  }
+  // The copy button by the address. Some in-app browsers block copying; then select the address to copy by hand.
+  const LINK = 'https://encyclopedia2000.com/', done = document.getElementById('done');
   document.getElementById('copy').onclick = async () => {
     try { await navigator.clipboard.writeText(LINK); done.textContent = 'Copied. Paste it into a note or message to yourself.'; }
-    catch { getSelection().selectAllChildren(document.querySelector('.card .url')); done.textContent = 'Press and hold to copy the address.'; }
+    catch { getSelection().selectAllChildren(document.getElementById('addr')); done.textContent = 'Press and hold to copy the address.'; }
   };
 </script>
 </body>
