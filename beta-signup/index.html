@@ -57,6 +57,15 @@
   .card .fine { font-size: .76rem; color: #93a3c4; }
   .card .fine a { color: inherit; }
   .alt { margin-top: 16px; font-size: .95rem; color: #dbe5f7; }
+  /* Phone: no sign-up needed. Get the link to your computer first; email is an optional extra. */
+  .card .url { margin: 12px 0 4px; padding: 12px; text-align: center; font: 600 1.25rem/1.2 var(--body); color: var(--orange);
+    background: rgba(255, 255, 255, .05); border: 1px dashed #4a5880; border-radius: 4px; user-select: all; }
+  .card .row { display: flex; gap: 10px; margin-top: 12px; }
+  .card .row .btn { flex: 1; }
+  .card .done { margin-top: 8px; font-size: .85rem; color: #9fe0a8; min-height: 1.1em; }
+  .card.mail { margin-top: 14px; background: rgba(8, 14, 32, .35); }
+  .card.mail h2 { font-size: 1rem; }
+  .card.mail p.hint { font-size: .85rem; color: #b9c6e0; }
   .alt b { color: var(--orange); }
   /* On a computer, offer the download right away instead of the email form. */
   .desk { display: none; }
@@ -71,9 +80,9 @@
   <a class="site" href="../index.html">Visit the website ›</a>
 </div>
 <main class="join">
-  <p class="kicker">Become a tester</p>
-  <h1>Join the <b>Encyclopedia 2000</b> beta</h1>
-  <p class="sub">The CD-ROM encyclopedia, reborn with today's Wikipedia. Free, no ads, no account.</p>
+  <p class="kicker">Free download · No sign-up</p>
+  <h1>Try the <b>Encyclopedia 2000</b> beta</h1>
+  <p class="sub">The CD-ROM encyclopedia, reborn with today's Wikipedia. Free, no ads, no account, nothing to sign up for.</p>
   <div class="carousel" aria-label="Screenshots">
     <div class="track">
       <figure><img src="../images/home.jpg" alt="The Home screen" width="1283" height="930" loading="eager"></figure>
@@ -87,19 +96,29 @@
 
   <div class="phone">
     <div class="card">
-      <h2>Email me the download link</h2>
+      <h2>Get it on your computer</h2>
       <p class="os">Windows <span>·</span> Mac <span>·</span> Linux</p>
+      <p>Encyclopedia 2000 is a computer app. Just visit this address on your computer and download it. No email needed.</p>
+      <div class="url">encyclopedia2000.com</div>
+      <div class="row">
+        <button class="btn primary" type="button" id="share" hidden>Send to my computer</button>
+        <button class="btn" type="button" id="copy">Copy link</button>
+      </div>
+      <p class="done" id="done" aria-live="polite"></p>
+    </div>
+    <div class="card mail">
+      <h2>Or email yourself the link (optional)</h2>
+      <p class="hint">Handy if you'll be on your computer later. You don't need to do this to download.</p>
       <!-- Sign-ups go to Kit (kit.com), which sends the download email. The number is the form ID from the form's
            HTML embed code in Kit. After a sign-up, Kit sends people to /beta-signup/thanks/ (set in the form's settings). -->
       <form action="https://app.kit.com/forms/10064508/subscriptions" method="post" novalidate>
         <input type="email" name="email_address" required placeholder="you@example.com" aria-label="Email address" autocomplete="email" aria-describedby="email-err">
         <p class="err" id="email-err" role="alert" hidden></p>
-        <button class="btn primary" type="submit">Send me the link</button>
+        <button class="btn" type="submit">Email me the link</button>
         <label class="opt"><input type="checkbox" name="fields[beta_news]" value="yes"> Send me beta news and sneak peeks</label>
         <p class="fine">We use your email only to send the link, plus beta news if you ask. If you don't ask for news, we delete your address within 90 days. For ages 13 and up. <a href="../privacy/index.html#signup">Privacy policy</a></p>
       </form>
     </div>
-    <p class="alt">Or visit <b>encyclopedia2000.com</b> on your computer</p>
   </div>
 
   <div class="desk">
@@ -138,6 +157,16 @@
     if (msg) { e.preventDefault(); email.focus(); }
   });
   email.addEventListener('input', () => { if (!err.hidden) showErr(''); });
+  // Getting the link to a computer without email: the phone's share sheet (Messages, AirDrop, Notes...) or copy.
+  const LINK = 'https://encyclopedia2000.com/', done = document.getElementById('done'), shareBtn = document.getElementById('share');
+  if (navigator.share) {
+    shareBtn.hidden = false;
+    shareBtn.onclick = () => navigator.share({ title: 'Encyclopedia 2000', text: 'Download Encyclopedia 2000 on my computer', url: LINK }).catch(() => {});
+  }
+  document.getElementById('copy').onclick = async () => {
+    try { await navigator.clipboard.writeText(LINK); done.textContent = 'Copied. Paste it into a note or message to yourself.'; }
+    catch { getSelection().selectAllChildren(document.querySelector('.card .url')); done.textContent = 'Press and hold to copy the address.'; }
+  };
 </script>
 </body>
 </html>
