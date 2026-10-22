@@ -179,6 +179,11 @@ dialog button { position: absolute; top: 8px; right: 8px; width: 34px; height: 3
 .phone .on-phone { display: block; }
 .phone span.on-phone { display: inline; }
 .phone .on-pc { display: none; }
+.phone.show-dl .on-pc { display: block; }
+.phone.show-dl .more-dl { display: none; }
+.more-dl { display: inline-block; margin-top: 16px; padding: 4px 0; border: 0; background: none; color: var(--sky); font: .93rem var(--body); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.more-dl:hover { color: var(--gold); }
+.phone-warn { margin: 22px 0 12px; }
 .topc > p:first-child { margin-top: 22px; color: #eef3fc; }
 .topc .dl { margin-top: 16px; }
 .choices { display: grid; gap: 10px; margin-top: 22px; }
