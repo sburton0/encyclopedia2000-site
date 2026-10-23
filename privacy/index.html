@@ -29,7 +29,7 @@
 <main class="doc">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="lead">Effective October 18, 2026</p>
+    <p class="lead">Effective [the 0.5 release date]</p>
 
     <p>Encyclopedia 2000 is a free desktop encyclopedia for Windows, Mac, and Linux. It's built to respect your privacy: it has no accounts, no ads, no analytics, and no tracking, and it doesn't collect or sell any personal information.</p>
 
@@ -41,9 +41,10 @@
       <li>Game progress, such as Star Chart stars and score</li>
       <li>What you enter in activities, such as the birthday in The Day You Were Born and the people in Lifelines</li>
       <li>The window's size and position</li>
+      <li>Your offline library, if you download one: a Wikipedia file saved in the folder you choose in <b>Tools → Offline Library</b>, along with the library's settings (Online or Offline mode, "use the offline library first", and the image choice) and the progress of a download in progress</li>
     </ul>
     <p>The installed version keeps these in your user profile on your computer. The portable version keeps them in an "Encyclopedia 2000 Data" folder next to the program.</p>
-    <p>To remove them, use <b>Tools → Options → Privacy → Clear Recently Viewed</b> or <b>Reset All Settings</b>, uninstall the app, or (for the portable version) delete the "Encyclopedia 2000 Data" folder. Uninstalling may leave your settings folder behind; you can delete it from <code>%APPDATA%\encyclopedia-2000</code>.</p>
+    <p>To remove an offline library, use <b>Remove…</b> in <b>Tools → Offline Library</b> (or delete its file from the folder shown there). To remove the rest, use <b>Tools → Options → Privacy → Clear Recently Viewed</b> or <b>Reset All Settings</b>, uninstall the app, or (for the portable version) delete the "Encyclopedia 2000 Data" folder. Uninstalling may leave your settings folder behind; you can delete it from <code>%APPDATA%\encyclopedia-2000</code>.</p>
 
     <h2>What the app connects to</h2>
     <p>To show you articles and keep itself up to date, the app connects to these services. Like any website you visit, they can see your computer's IP address and the request being made (for example, which article you opened). The app identifies itself to them as Encyclopedia 2000 and its version number. It doesn't send your name, email, or any other personal information.</p>
@@ -51,11 +52,18 @@
       <tr><th>Service</th><th>Why</th></tr>
       <tr><td><b>Wikipedia</b> (en.wikipedia.org)</td><td>Articles, search, featured content, and "On this day" events</td></tr>
       <tr><td><b>Wikimedia Commons</b> (upload.wikimedia.org and commons.wikimedia.org)</td><td>Pictures, videos, and sounds, and the Media of the Day and Featured Sounds lists</td></tr>
+      <tr><td><b>Wikimedia</b> (wikimedia.org)</td><td>Pictures of math formulas in articles</td></tr>
       <tr><td><b>Wikidata</b> (query.wikidata.org)</td><td>Facts in World Explorer and Lifelines</td></tr>
       <tr><td><b>GitHub</b> (github.com)</td><td>Checking for and downloading updates</td></tr>
+      <tr><td><b>Kiwix</b> (opds.library.kiwix.org and download.kiwix.org)</td><td>Only if you use the offline library: the list of library files, their sizes, and new editions (when you open <b>Tools → Offline Library</b>, at most once a day, and otherwise at most once a month once you have a library), and the address of each download</td></tr>
+      <tr><td><b>Download mirrors</b> (listed by Kiwix, for example dumps.wikimedia.org and your.org)</td><td>Only while you download an offline library: the file itself, from mirror servers run by universities, companies, and volunteers, in the order Kiwix lists</td></tr>
     </table></div>
-    <p>These services are covered by their own privacy policies: the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a> for Wikipedia, Wikimedia Commons, and Wikidata, and the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a> for GitHub.</p>
+    <p>These services are covered by their own privacy policies: the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a> for Wikipedia, Wikimedia Commons, and Wikidata, the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a> for GitHub, and Kiwix's and each mirror operator's own policies for library downloads.</p>
+    <p>When you read an article from your offline library while you're connected, the app may load sharper copies of its pictures from Wikipedia (unless you choose <b>Use the library's images only</b> in <b>Tools → Offline Library</b>).</p>
     <p>You can turn off automatic update checks in <b>Tools → Options → Privacy</b>. The portable version only checks for updates; it never downloads them.</p>
+
+    <h2>Offline mode</h2>
+    <p>In <b>Offline mode</b> (chosen from the connection light in the status bar), the app's window loads nothing from the internet: articles, search, pictures, and everything else come only from your offline library, and automatic update checks are skipped. A library download you start yourself, or one already in progress, still runs. Links you choose to open in your web browser still open there.</p>
 
     <h2>Links that open in your web browser</h2>
     <p>Some buttons open web pages in your own browser instead of inside the app, such as <b>View on Wikipedia</b>, <b>Donate</b>, and <b>Send Feedback</b>. Once you're on those sites, their own privacy policies apply. In particular, <b>Send Feedback</b> offers our <b>Discord server</b> and a <b>Google Form</b>. The form is anonymous unless you choose to enter an email address for a reply. It fills in your app version and operating system version for you; nothing is sent until you press Submit. Google's and Discord's privacy policies apply to what you share there.</p>
@@ -75,7 +83,7 @@
     <p>If this policy changes, the new version will be posted here with a new effective date, and noted in the release notes.</p>
 
     <h2>Contact</h2>
-    <p>Questions about privacy? Ask on our <a href="https://discord.encyclopedia2000.com">Discord</a> or use the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCzlaWDSgLJfiaTmDzbbJ9dW2yQLKUjwxtbEqByurrhiARYg/viewform">feedback form</a>.</p>
+    <p>Questions about privacy? Email <a href="mailto:hello@encyclopedia2000.com">hello@encyclopedia2000.com</a>, ask on our <a href="https://discord.encyclopedia2000.com">Discord</a>, or use the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCzlaWDSgLJfiaTmDzbbJ9dW2yQLKUjwxtbEqByurrhiARYg/viewform">feedback form</a>.</p>
   </div>
 </main>
 

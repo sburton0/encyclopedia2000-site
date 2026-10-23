@@ -192,6 +192,7 @@ dialog button { position: absolute; top: 8px; right: 8px; width: 34px; height: 3
 .choice b { display: block; font-size: 1.05rem; color: var(--gold); }
 .choice span { display: block; font-size: .93rem; color: var(--sky); }
 .choice i { flex: none; font-style: normal; font: 600 .7rem var(--display); letter-spacing: .14em; text-transform: uppercase; padding: 3px 7px; border: 1px solid var(--orange); color: var(--gold); }
+.features h3 .new { font: 600 .68rem var(--display); letter-spacing: .14em; text-transform: uppercase; padding: 2px 7px; margin-left: 8px; border: 1px solid var(--orange); color: var(--gold); vertical-align: 3px; }
 .note { margin-top: 16px; font-size: .93rem; color: var(--sky); }
 
 /* Roadmap */
