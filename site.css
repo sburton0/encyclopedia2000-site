@@ -229,7 +229,7 @@ footer nav a { font-weight: 400; }
 /* Streamlined layout (2026-10): single-column Wikipedia and Download sections, and a one-line "coming next". */
 .wiki.single .wrap { display: block; max-width: 760px; text-align: center; }
 .wiki.single .copy .btn { margin-top: 22px; }
-.wiki.single h2 { margin-bottom: 14px; }
+.wiki.single h2 { margin-bottom: 20px; }
 .tipbtns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
 .wiki.single .copy .tipbtns .btn { margin-top: 0; }
 .box.single { grid-template-columns: 1fr; max-width: 760px; margin-inline: auto; }
