@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="images/icon-small.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico">
-<link rel="stylesheet" href="site.css?v=13">
+<link rel="stylesheet" href="site.css?v=14">
 </head>
 <body>
 
@@ -173,9 +173,10 @@
         <p>Big updates and sneak peeks. Unsubscribe anytime.</p>
         <form action="https://app.kit.com/forms/10096530/subscriptions" method="post" novalidate>
           <input type="hidden" name="fields[beta_news]" value="yes">
-          <input type="email" name="email_address" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+          <input type="email" name="email_address" required placeholder="you@example.com" aria-label="Email address" autocomplete="email" aria-describedby="news-err">
           <button class="btn primary" type="submit">Sign up</button>
         </form>
+        <p class="err" id="news-err" role="alert" hidden></p>
         <p class="fine">For ages 13 and up. <a href="/privacy/#signup">Privacy policy</a></p>
       </div>
     </div>
@@ -272,6 +273,18 @@
   }));
   document.getElementById('lb-x').addEventListener('click', () => lb.close());
   lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+  // News sign-up: check the address before sending it to Kit, as on the beta page: something@, then a domain with a
+  // dot and an ending (gmail.com).
+  const news = document.querySelector('.news form'), newsEmail = news.elements.email_address, newsErr = document.getElementById('news-err');
+  const showNewsErr = (msg) => { newsErr.textContent = msg; newsErr.hidden = !msg; newsEmail.setAttribute('aria-invalid', msg ? 'true' : 'false'); };
+  news.addEventListener('submit', (e) => {
+    newsEmail.value = newsEmail.value.trim();
+    const msg = !newsEmail.value ? 'Please enter your email address.'
+      : /^[^\s@]+@([a-z0-9-]+\.)+[a-z]{2,}$/i.test(newsEmail.value) ? '' : 'Please enter a valid email address.';
+    showNewsErr(msg);
+    if (msg) { e.preventDefault(); newsEmail.focus(); }
+  });
+  newsEmail.addEventListener('input', () => { if (!newsErr.hidden) showNewsErr(''); });
 </script>
 </body>
 </html>

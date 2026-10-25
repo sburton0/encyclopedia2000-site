@@ -261,5 +261,7 @@ footer nav a { font-weight: 400; }
 .news input[type=email]:focus { outline: 2px solid var(--orange); outline-offset: 1px; }
 .news .btn { padding-inline: 20px; }
 .news p.fine { margin-top: 10px; font-size: .82rem; }
+.news input[aria-invalid=true] { border-color: #ff8a7a; }
+.news p.err { margin-top: 8px; font-size: .85rem; color: #ff9d8f; }
 .news p.fine a { color: var(--sky); }
 @media (max-width: 480px) { .news form { flex-direction: column; } .news .btn { justify-content: center; } }
