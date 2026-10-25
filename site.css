@@ -253,3 +253,13 @@ footer nav a { font-weight: 400; }
 .faqpage h2 { scroll-margin-top: 80px; }
 .faqpage .faq { margin-top: 6px; }
 .faqpage details p { margin-top: 0; }
+.news { max-width: 520px; margin: 28px auto 0; padding-top: 26px; border-top: 1px solid var(--edge); text-align: center; }
+.news h3 { font: 600 1.15rem/1.3 var(--body); color: #fff; }
+.news p { margin-top: 6px; color: var(--sky); }
+.news form { display: flex; gap: 8px; margin-top: 14px; }
+.news input[type=email] { flex: 1; min-width: 0; padding: 11px 14px; border: 1px solid #4a5262; border-radius: 4px; background: #0b0d12; color: #fff; font: inherit; }
+.news input[type=email]:focus { outline: 2px solid var(--orange); outline-offset: 1px; }
+.news .btn { padding-inline: 20px; }
+.news p.fine { margin-top: 10px; font-size: .82rem; }
+.news p.fine a { color: var(--sky); }
+@media (max-width: 480px) { .news form { flex-direction: column; } .news .btn { justify-content: center; } }

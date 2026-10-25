@@ -13,15 +13,15 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="images/icon-small.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico">
-<link rel="stylesheet" href="site.css?v=12">
+<link rel="stylesheet" href="site.css?v=13">
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="images/icon.svg" alt=""><span>Encyclopedia <b>2000</b></span></a>
+    <a class="brand" href="/"><img src="images/icon.svg" alt=""><span>Encyclopedia <b>2000</b></span></a>
     <nav aria-label="Sections">
-      <a href="index.html">Home</a>
+      <a href="/">Home</a>
       <a href="#features">Features</a>
       <a href="#faq">FAQ</a>
       <a href="https://donate.encyclopedia2000.com">Donate</a>
@@ -145,6 +145,7 @@
             <div class="dl" data-os="linux" hidden>
               <a class="btn primary" href="https://github.com/sburton0/encyclopedia-2000/releases/download/v0.5.1-beta/Encyclopedia-2000-0.5.1-beta-linux-amd64.deb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v10.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6zM4 19h16v2H4z"/></svg><div><b>Download the .deb package</b><span>Ubuntu, Debian, Linux Mint, and similar (64-bit)</span></div></a>
               <p class="note">Open it with your software installer, or run <code>sudo apt install ./Encyclopedia-2000-0.5.1-beta-linux-amd64.deb</code>.</p>
+              <p class="note">Using Fedora, Arch, or another distribution? More Linux packages are on the way.</p>
             </div>
             <p class="note">Requires Windows 10 or 11, macOS 13 or later, or 64-bit Linux. An internet connection, or an offline library. · <a href="https://github.com/sburton0/encyclopedia-2000/releases">All versions and release notes</a></p>
           </div>
@@ -167,6 +168,16 @@
   <section id="next">
     <div class="wrap">
       <p class="next-line">Coming next: saved articles, a full history, and more activities. Follow along on the <a href="https://discord.encyclopedia2000.com">Discord</a>.</p>
+      <div class="news">
+        <h3>Get Encyclopedia 2000 news</h3>
+        <p>Big updates and sneak peeks. Unsubscribe anytime.</p>
+        <form action="https://app.kit.com/forms/10096530/subscriptions" method="post" novalidate>
+          <input type="hidden" name="fields[beta_news]" value="yes">
+          <input type="email" name="email_address" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+          <button class="btn primary" type="submit">Sign up</button>
+        </form>
+        <p class="fine">For ages 13 and up. <a href="/privacy/#signup">Privacy policy</a></p>
+      </div>
     </div>
   </section>
 
@@ -178,11 +189,11 @@
         <details><summary>Is it really free?</summary><p>Yes. No ads, purchases, subscriptions, or accounts. If you'd like to help, you can <a href="https://donate.wikimedia.org/">donate to Wikipedia</a> or <a href="https://donate.encyclopedia2000.com">tip the developer</a>.</p></details>
         <details><summary>What does "Beta" mean?</summary><p>Encyclopedia 2000 is still being built. New features arrive often, and you may run into the occasional rough edge. On Windows and Mac, updates download and install by themselves. If something isn't working, use <b>Help → Send Feedback</b> in the app.</p></details>
         <details><summary>Do I need an internet connection?</summary><p>Not if you download an offline library. Normally, articles and pictures come live from Wikipedia. In <b>Tools → Offline Library</b> you can download Wikipedia to your computer (the best 220,000 articles in 7 GB, or all of it) and read, search, and explore without the internet. Videos, sounds, and a few live features still need a connection.</p></details>
-        <details><summary>Does it collect any information about me?</summary><p>No. Your favorites and settings stay on your computer. Read the <a href="privacy/index.html">privacy policy</a>.</p></details>
+        <details><summary>Does it collect any information about me?</summary><p>No. Your favorites and settings stay on your computer. Read the <a href="/privacy/">privacy policy</a>.</p></details>
         <details><summary>Why does Windows warn me when I run it?</summary><p>Windows SmartScreen warns about apps it hasn't seen many people download yet, which happens with each new version for its first days. Encyclopedia 2000 is signed by its publisher. If you see "Windows protected your PC", click <b>More info → Run anyway</b>; your browser may also ask you to keep the download. The warning goes away as more people download the new version.</p></details>
         <details><summary>How do I report a bug or suggest an idea?</summary><p>Use <b>Help → Send Feedback</b> in the app, join the <a href="https://discord.encyclopedia2000.com">Discord</a>, or use the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCzlaWDSgLJfiaTmDzbbJ9dW2yQLKUjwxtbEqByurrhiARYg/viewform">feedback form</a>.</p></details>
       </div>
-      <p class="morefaq"><a href="faq/index.html">More questions ›</a></p>
+      <p class="morefaq"><a href="/faq/">More questions ›</a></p>
     </div>
   </section>
 </main>
@@ -198,8 +209,8 @@
       <a href="https://discord.encyclopedia2000.com">Discord</a>
       <a href="https://github.com/sburton0/encyclopedia-2000/releases">Release notes</a>
       <a href="https://donate.encyclopedia2000.com">Donate</a>
-      <a href="press/index.html">Press kit</a>
-      <a href="privacy/index.html">Privacy</a>
+      <a href="/press/">Press kit</a>
+      <a href="/privacy/">Privacy</a>
     </nav>
   </div>
 </footer>
