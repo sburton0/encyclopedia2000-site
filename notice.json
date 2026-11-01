@@ -1,1 +1,1 @@
-{ "news": null, "important": null }
+{ "news": { "id": "live-test-1", "text": "Live test of news from encyclopedia2000.com.", "link": { "label": "Learn more ›", "url": "https://encyclopedia2000.com/" }, "versions": "0.5.3", "until": "2026-11-02" }, "important": null }
