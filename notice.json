@@ -1,1 +1,4 @@
-{ "news": null, "important": null }
+{
+  "news": { "id": "test-0.5.4-news", "text": "Test news for 0.5.4: the USB Offline Edition is coming soon.", "link": { "label": "Learn more ›", "url": "https://encyclopedia2000.com/" }, "versions": "0.5.4", "until": "2026-11-08" },
+  "important": { "id": "test-0.5.4-important", "text": "Test notice for 0.5.4: this is how an important message looks.", "link": { "label": "Details", "url": "https://github.com/sburton0/encyclopedia-2000/releases" }, "versions": "0.5.4", "until": "2026-11-08" }
+}
