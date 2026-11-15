@@ -1,1 +1,9 @@
-{ "news": null, "important": null }
+{
+  "news": null,
+  "important": {
+    "id": "games-in-activities",
+    "text": "Games have moved to Activities. Click Activities on the toolbar to play Star Chart and Passport.",
+    "until": "2026-12-31",
+    "versions": ">=0.6.0 <0.7.0"
+  }
+}
