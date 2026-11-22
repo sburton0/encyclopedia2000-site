@@ -30,7 +30,7 @@
 <main class="doc">
   <div class="wrap">
     <h1>Privacy Policy</h1>
-    <p class="lead">Effective November 15, 2026</p>
+    <p class="lead">Effective November 22, 2026</p>
 
     <p>Encyclopedia 2000 is a free desktop encyclopedia for Windows, Mac, and Linux. It's built to respect your privacy: it has no accounts, no ads, no analytics, and no tracking, and it doesn't collect or sell any personal information.</p>
 
@@ -57,14 +57,16 @@
       <tr><td><b>Wikimedia Commons</b> (upload.wikimedia.org and commons.wikimedia.org)</td><td>Pictures, videos, and sounds, and the Media of the Day and Featured Sounds lists</td></tr>
       <tr><td><b>Wikimedia</b> (wikimedia.org)</td><td>Pictures of math formulas in articles</td></tr>
       <tr><td><b>Wikidata</b> (query.wikidata.org)</td><td>Facts in World Explorer and Lifelines</td></tr>
-      <tr><td><b>GitHub</b> (github.com)</td><td>Checking for and downloading updates</td></tr>
+      <tr><td><b>GitHub</b> (github.com)</td><td>Checking for and downloading updates (Windows, Mac, and Linux copies that don’t update through the system)</td></tr>
       <tr><td><b>encyclopedia2000.com</b></td><td>News and notices about the app (a small file, notice.json), at most once a day. The site is hosted on GitHub Pages and served through Cloudflare, which process your IP address to deliver it, as any web host does</td></tr>
+      <tr><td><b>apt.encyclopedia2000.com</b></td><td>Linux, if you installed the .deb: your computer’s own update check (Update Manager, Software Updater, or <code>apt update</code>) reads the list of versions here and downloads new ones, like any other software source. The app itself doesn’t contact it. It’s stored on Cloudflare R2, which processes your IP address to deliver it, as any web host does</td></tr>
       <tr><td><b>Kiwix</b> (opds.library.kiwix.org and download.kiwix.org)</td><td>Only if you use the offline library: the list of library files, their sizes, and new editions (when you open <b>Tools → Offline Library</b>, at most once a day, and otherwise at most once a month once you have a library), and the address of each download</td></tr>
       <tr><td><b>Download mirrors</b> (listed by Kiwix, for example dumps.wikimedia.org and your.org)</td><td>Only while you download an offline library: the file itself, from mirror servers run by universities, companies, and volunteers, in the order Kiwix lists</td></tr>
     </table></div>
     <p>These services are covered by their own privacy policies: the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a> for Wikipedia, Wikimedia Commons, and Wikidata, the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a> for GitHub, and Kiwix's and each mirror operator's own policies for library downloads.</p>
     <p>When you read an article from your offline library while you're connected, the app may load sharper copies of its pictures from Wikipedia (unless you choose <b>Use the library's images only</b> in <b>Tools → Offline Library</b>).</p>
     <p>You can turn off automatic update checks in <b>Tools → Options → Privacy</b>. The portable version asks on its first start whether to check for updates (and news), and whether to also update automatically; it contacts nothing until you answer, and <b>Don't Check</b> turns news off too. Otherwise it downloads an update only when you choose <b>Download</b>, and switches to it only when you choose <b>Restart Now</b> or <b>Update on Close</b>.</p>
+    <p>On Linux, a copy installed from the .deb (from 0.6.1) updates through your computer’s own updates, from apt.encyclopedia2000.com, and doesn’t check for updates itself. To stop that, delete <code>/etc/apt/sources.list.d/encyclopedia-2000.sources</code>; the app then checks GitHub itself, as above.</p>
     <p>You can turn off news on the Home page in <b>Tools → Options → Privacy</b>. Notices about problems that need your attention come with the update check. With both turned off, the app doesn't check for news or notices at all.</p>
 
     <h2>Offline mode</h2>
